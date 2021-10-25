@@ -1,5 +1,7 @@
 package pruebasunitarias;
 
+import java.util.Calendar;
+
 public class Prueba {
 
     public boolean noAgregarCantidadDeUnProductoAlCarritoMayorALaCantidadQueHayEnStock(int cantProducto, int stock) {
@@ -72,5 +74,18 @@ public class Prueba {
         } else {
             return "Se agrego el producto al carrito";
         }
+    }
+
+    public boolean cantidadProducto(int cantidad) {
+        return cantidad > 0;
+    }
+
+    public boolean fechaEnvioValida(Calendar fecha) {
+
+        Calendar fechaActual = Calendar.getInstance();
+        fechaActual.getTime();
+
+        boolean valid = (fecha.after(fechaActual));
+        return valid;
     }
 }

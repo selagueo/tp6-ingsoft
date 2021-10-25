@@ -1,6 +1,6 @@
-
 package pruebasunitarias;
 
+import java.util.Calendar;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -8,24 +8,23 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-
 public class PruebaTest {
-    
+
     public PruebaTest() {
     }
-    
+
     @BeforeClass
     public static void setUpClass() {
     }
-    
+
     @AfterClass
     public static void tearDownClass() {
     }
-    
+
     @Before
     public void setUp() {
     }
-    
+
     @After
     public void tearDown() {
     }
@@ -157,5 +156,30 @@ public class PruebaTest {
         String result = instance.agregarAlCarritoCheckearDesc(producto, descripcion);
         assertEquals(expResult, result);
     }
-    
+
+    // La cantidad de productos en el carrito debe ser mayor a 0.
+    @Test
+    public void testCantidadProducto() {
+        System.out.println("cantidadProducto");
+        int cantidad = 2;
+        Prueba instance = new Prueba();
+        boolean expResult = true;
+        boolean result = instance.cantidadProducto(cantidad);
+        assertEquals(expResult, result);
+    }
+
+    // La fecha de envío debe ser mayor a la fecha actual
+    @Test
+    public void testFechaEnvioValida() {
+        System.out.println("fechaEnvioValida");
+        Calendar fecha = Calendar.getInstance();
+        fecha.set(Calendar.YEAR, 2021);
+        fecha.set(Calendar.MONTH, Calendar.DECEMBER);
+        fecha.set(Calendar.DAY_OF_MONTH, 26);
+        Prueba instance = new Prueba();
+        boolean expResult = true;
+        boolean result = instance.fechaEnvioValida(fecha);
+        assertEquals(expResult, result);
+    }
+
 }
